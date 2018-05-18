@@ -31,25 +31,21 @@ create mask = 0644
 force create mode = 0644
 directory mask = 0755
 force directory mode = 0755
-browsable = yes
-writable = yes
 guest account = root
 force user = root
 force group = root
+wins support = yes
 
 [PiShare]
- comment=Raspberry Pi Share
  path = /data/share
- browseable=Yes
- writeable=Yes
- only guest=no
- create mask=0777
- directory mask=0777
- public=yes
- force user=pi
- force group=pi
- guest ok = yes
- read only = no
+ browseable = Yes
+ writeable = Yes
+ only guest = no
+ create mask = 0777
+ directory mask = 0777
+ public = yes
+ force user = pi
+ force group = pi
 
 EOF
 ionice -c 3 nmbd -D
