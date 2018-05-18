@@ -36,10 +36,21 @@ writable = yes
 guest account = root
 force user = root
 force group = root
-[Public]
-path = /data/share
-guest ok = yes
-read only = no
+
+[PiShare]
+ comment=Raspberry Pi Share
+ path = /data/share
+ browseable=Yes
+ writeable=Yes
+ only guest=no
+ create mask=0777
+ directory mask=0777
+ public=yes
+ force user=pi
+ force group=pi
+ guest ok = yes
+ read only = no
+
 EOF
 ionice -c 3 nmbd -D
 exec ionice -c 3 smbd -FS --configfile=/etc/samba/smb.conf </dev/null
