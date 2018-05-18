@@ -31,22 +31,17 @@ create mask = 0644
 force create mode = 0644
 directory mask = 0755
 force directory mode = 0755
+browsable = yes
+writable = yes
 guest account = root
 force user = root
 force group = root
 wins support = yes
 
-[PiShare]
- path = /data/share
- browseable = Yes
- writeable = Yes
- only guest = no
- create mask = 0777
- directory mask = 0777
- public = yes
- force user = pi
- force group = pi
-
+[Public]
+path = /data/share
+guest ok = yes
+read only = no
 EOF
 ionice -c 3 nmbd -D
 exec ionice -c 3 smbd -FS --configfile=/etc/samba/smb.conf </dev/null
